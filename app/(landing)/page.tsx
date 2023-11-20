@@ -6,21 +6,30 @@ import { randomUUID } from 'crypto';
 import { ArrowRight, Database, LayoutDashboard, Flag } from "lucide-react"
 
 import Banner from '../../public/banner.png';
-import Cal from '../../public/cal.png';
 
 import CustomCard from './_components/custom-card'
 import TitleSection from './_components/title-section'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { CardDescription, CardTitle } from '@/components/ui/card';
-import { CLIENTS, USERS, CASE_CARDS } from '@/lib/constants';
+import { CLIENTS, USERS, CARDS } from '@/lib/constants';
 import { LearnMoreCard } from './_components/learn-more-card';
 import { CaseStudies } from './_components/case-studies';
-import { Badge } from '@/components/ui/badge';
 import { LandingHero } from './_components/landing-hero';
 import Link from 'next/link';
+import Card from './_components/card/card';
+//import { useScroll } from 'framer-motion';
+//import { useRef } from 'react';
 
 const LandingPage = () => {
+
+/*   const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start start', 'end end']
+  })
+
+   */
 
   return (
     <>
@@ -176,6 +185,14 @@ const LandingPage = () => {
             </div>
         </div>
       </section>
+      {/* <section ref={container} className='my-[50vh]'>
+        {
+        CARDS.map( (card, i) => {
+          const targetScale = 1 - ( (CARDS.length - i) * 0.05);
+          return <Card key={`p_${i}`} {...card} i={i}/>
+        })
+        }
+      </section> */}
       <section className='group'>
         <div className='relative flex flex-row justify-between items-center shadow-xl rounded-xl mx-5 lg:max-w-5xl lg:mx-auto my-10 bg-gradient-to-t from-gray-500 to-green-950 dark:from-gray-300 dark:to-gray-600 px-20 transition overflow-hidden h-[400px]
             group-hover:scale-[1.04]'>
@@ -269,7 +286,7 @@ const LandingPage = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> 
       <section>
         <CaseStudies/>
       </section>
